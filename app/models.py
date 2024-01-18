@@ -14,7 +14,7 @@ class Tag(BaseModel):
     )
 
     class Meta:
-        verbose_name = "Status"
+        verbose_name = "Statu"
 
     def __str__(self) -> str:
         return self.name
@@ -30,6 +30,9 @@ class NumericData(BaseModel):
         max_length = 100, 
         null = True
     )
+
+    class Meta:
+        verbose_name = "Donnée"
 
     def __str__(self) -> str:
         return f"{self.data} : {self.value}"
@@ -53,6 +56,9 @@ class Answer(BaseModel):
         blank = True
     )
     question_id = models.ForeignKey(Question, on_delete = models.CASCADE)
+
+    class Meta:
+        verbose_name = "Reponse"
     
     def __str__(self) -> str:
         return self.content
