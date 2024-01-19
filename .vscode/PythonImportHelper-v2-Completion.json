@@ -154,6 +154,14 @@
         "documentation": {}
     },
     {
+        "label": "Paginator",
+        "importPath": "django.core.paginator",
+        "description": "django.core.paginator",
+        "isExtraImport": true,
+        "detail": "django.core.paginator",
+        "documentation": {}
+    },
+    {
         "label": "sys",
         "kind": 6,
         "isExtraImport": true,
@@ -464,7 +472,7 @@
         "kind": 2,
         "importPath": "app.views",
         "description": "app.views",
-        "peekOfCode": "def index(request):\n    context = {\n        \"name\": \"Aure\",\n    }\n    return render(request, \"index.html\", context)",
+        "peekOfCode": "def index(request):\n    questions = Question.objects.all().order_by('-updated_at')\n    paginator = Paginator(questions, 25)  # Show 25 contacts per page.\n    page_number = request.GET.get(\"page\")\n    page_obj = paginator.get_page(page_number)\n    context = {\n        \"questions\" : page_obj,\n    }\n    return render(request, \"index.html\", context)",
         "detail": "app.views",
         "documentation": {}
     },
