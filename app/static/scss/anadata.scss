@@ -1,5 +1,9 @@
 .nav-underline {
   .nav-link {
     color: #fff;
+    &.active {
+      color: #145f20 !important;
+      border-bottom: 2px solid #145f20 !important;
+    }
   }
 }
